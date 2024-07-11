@@ -9,7 +9,7 @@ final class PlanetRemoteDataSourceImpl
   @override
   Future<List<PlanetModel>> getPlanetData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
-        .handleGetApiResponse(ApiEndPoints.people, {'page': pageNum});
+        .handleGetApiResponse(ApiEndPoints.planets, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
       return _apiResponseHandler.extractListData<PlanetModel>(
           apiResponse, PlanetModel.fromJson);

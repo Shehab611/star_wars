@@ -9,7 +9,7 @@ final class VehicleRemoteDataSourceImpl
   @override
   Future<List<VehicleModel>> getVehicleData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
-        .handleGetApiResponse(ApiEndPoints.people, {'page': pageNum});
+        .handleGetApiResponse(ApiEndPoints.vehicles, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
       return _apiResponseHandler.extractListData<VehicleModel>(
           apiResponse, VehicleModel.fromJson);

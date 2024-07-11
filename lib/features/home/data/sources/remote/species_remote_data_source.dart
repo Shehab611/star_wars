@@ -9,7 +9,7 @@ final class SpeciesRemoteDataSourceImpl
   @override
   Future<List<SpeciesModel>> getSpeciesData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
-        .handleGetApiResponse(ApiEndPoints.people, {'page': pageNum});
+        .handleGetApiResponse(ApiEndPoints.species, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
       return _apiResponseHandler.extractListData<SpeciesModel>(
           apiResponse, SpeciesModel.fromJson);

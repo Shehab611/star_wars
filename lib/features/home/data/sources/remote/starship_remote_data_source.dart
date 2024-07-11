@@ -9,7 +9,7 @@ final class StarshipRemoteDataSourceImpl
   @override
   Future<List<StarshipModel>> getStarshipData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
-        .handleGetApiResponse(ApiEndPoints.people, {'page': pageNum});
+        .handleGetApiResponse(ApiEndPoints.starships, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
       return _apiResponseHandler.extractListData<StarshipModel>(
           apiResponse, StarshipModel.fromJson);
