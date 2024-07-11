@@ -17,4 +17,26 @@ final class ApiResponseHandler {
           ApiChecker.checkApi(ApiErrorHandler.getMessage(e)));
     }
   }
+
+  List<T> extractListData<T>(
+      ApiResponse apiResponse, T Function(Map<String, dynamic> json) fromJson,
+      [String dataKey = ' String dataKey,']) {
+    final List<T> data = [];
+    final responseData = apiResponse.response?.data;
+    final dataList = responseData[dataKey];
+    for (var json in dataList) {
+      if (json is Map<String, dynamic>) {
+        data.add(fromJson(json));
+      }
+    }
+    return data;
+  }
+
+  T extractData<T>(
+      ApiResponse apiResponse, T Function(Map<String, dynamic> json) fromJson,
+      [String dataKey = ' String dataKey,']) {
+    final responseData = apiResponse.response?.data;
+    final data = responseData[dataKey];
+    return data;
+  }
 }
