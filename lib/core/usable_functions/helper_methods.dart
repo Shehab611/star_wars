@@ -7,4 +7,8 @@ abstract final class HelperMethods {
     }
     return 'n/a';
   }
+
+  static bool canLoadMore(String? url) {
+    return url != null;
+  }
 }
