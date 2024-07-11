@@ -20,23 +20,22 @@ final class ApiResponseHandler {
 
   List<T> extractListData<T>(
       ApiResponse apiResponse, T Function(Map<String, dynamic> json) fromJson,
-      [String dataKey = ' String dataKey,']) {
+      [String dataKey = 'results']) {
     final List<T> data = [];
     final responseData = apiResponse.response?.data;
     final dataList = responseData[dataKey];
     for (var json in dataList) {
-      if (json is Map<String, dynamic>) {
-        data.add(fromJson(json));
-      }
+      data.add(fromJson(json));
     }
+
     return data;
   }
 
   T extractData<T>(
       ApiResponse apiResponse, T Function(Map<String, dynamic> json) fromJson,
-      [String dataKey = ' String dataKey,']) {
+      [String dataKey = 'results']) {
     final responseData = apiResponse.response?.data;
     final data = responseData[dataKey];
-    return data;
+    return fromJson(data);
   }
 }
