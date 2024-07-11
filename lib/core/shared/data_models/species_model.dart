@@ -25,13 +25,13 @@ final class SpeciesModel extends Species {
       classification: json['classification'],
       designation: json['designation'],
       hairColors: json['hair_colors'] == 'n/a'
-          ? json['hair_colors']
+          ? [json['hair_colors']]
           : json['hair_colors'].split(', '),
       skinColor: json['skin_colors'] == 'n/a'
-          ? json['skin_colors']
+          ? [json['skin_colors']]
           : json['skin_colors'].split(', '),
       eyeColor: json['eye_colors'] == 'n/a'
-          ? json['eye_colors']
+          ? [json['eye_colors']]
           : json['eye_colors'].split(', '),
       averageHeight: json['average_height'],
       averageLifespan: json['average_lifespan'],

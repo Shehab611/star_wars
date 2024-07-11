@@ -1,6 +1,6 @@
 abstract final class HelperMethods {
   static String extractID(String? url) {
-    if (url != null) {
+    if (url != null && url != 'n/a') {
       return url.split('/').lastWhere(
             (element) => element.isNotEmpty,
           );

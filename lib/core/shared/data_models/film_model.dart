@@ -21,7 +21,7 @@ final class FilmModel extends Film {
     return FilmModel(
         id: HelperMethods.extractID(json['url']),
         title: json['title'],
-        episodeId: json['episode_id'],
+        episodeId: json['episode_id'].toString(),
         openingCrawl: json['opening_crawl'],
         director: json['director'],
         producer: json['producer'],
@@ -32,7 +32,8 @@ final class FilmModel extends Film {
             .cast<String>(),
         planets:
             (json['planets']).map((e) => HelperMethods.extractID(e))
-            .toList(),
+            .toList()
+            .cast<String>(),
         vehicles: (json['vehicles'])
             .map((e) => HelperMethods.extractID(e))
             .toList()
