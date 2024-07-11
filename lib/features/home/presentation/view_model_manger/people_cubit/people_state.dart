@@ -10,3 +10,28 @@ final class PeopleInitial extends PeopleState {
   @override
   List<Object> get props => [];
 }
+
+final class PeopleGetDataLoadingState extends PeopleState {
+  const PeopleGetDataLoadingState();
+
+  @override
+  List<Object> get props => [];
+}
+
+final class PeopleGetDataSuccessState extends PeopleState {
+  const PeopleGetDataSuccessState(this.data);
+
+  final List<People> data;
+
+  @override
+  List<Object> get props => [];
+}
+
+final class PeopleGetDataFailedState extends PeopleState {
+  const PeopleGetDataFailedState(this.error);
+
+  final String error;
+
+  @override
+  List<Object> get props => [];
+}
