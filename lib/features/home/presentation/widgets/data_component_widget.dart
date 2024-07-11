@@ -46,54 +46,35 @@ class DataComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        Container(
-          width: size.width * 0.45,
-          height: size.width * 0.32,
-          decoration: BoxDecoration(
-            color: Colors.blueGrey,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white.withOpacity(0.5),
-                offset: const Offset(15, 15),
-                blurRadius: 3,
-                spreadRadius: -10,
-              ),
-            ],
+    return Container(
+      width: size.width * 0.45,
+      height: size.width * 0.32,
+      decoration: BoxDecoration(
+        color: Colors.blueGrey,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white.withOpacity(0.5),
+            offset: const Offset(15, 15),
+            blurRadius: 3,
+            spreadRadius: -10,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                upperData,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                lowerData,
-                textAlign: TextAlign.center,
-              )
-            ],
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            upperData,
+            textAlign: TextAlign.center,
           ),
-        ),
-        Positioned(
-          right: 0,
-          top: -9,
-          child: IconButton(
-              onPressed: onFavouritePressed,
-              icon: CircleAvatar(
-                radius: size.width * 0.04,
-                backgroundColor: AppColors.cardColor,
-                child: Icon(
-                  Icons.favorite_border,
-                  size: size.width * 0.06,
-                  color: AppColors.primaryColor,
-                ),
-              )),
-        )
-      ],
+          Text(
+            lowerData,
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
     );
   }
 }

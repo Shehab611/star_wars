@@ -49,7 +49,7 @@ class SectionWidget<T> extends StatelessWidget {
                     ));
               },
               separatorBuilder: (context, index) => SizedBox(
-                    width: size.width * 0.02,
+                    width: size.width * 0.03,
                   ),
               itemCount: data.isNotEmpty ? data.length : 3),
         )
