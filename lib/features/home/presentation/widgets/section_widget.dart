@@ -45,7 +45,7 @@ class SectionWidget<T> extends StatelessWidget {
                     child: DataComponentWidget(
                       upperData: dataProvider?.upperData ?? '',
                       lowerData: dataProvider?.lowerData ?? '',
-                      isLoading: data.isEmpty,
+                      isLoading: isLoading,
                     ));
               },
               separatorBuilder: (context, index) => SizedBox(
