@@ -79,16 +79,16 @@ class DataComponent extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 1,
-          top: -5,
+          right: 0,
+          top: -9,
           child: IconButton(
               onPressed: onFavouritePressed,
               icon: CircleAvatar(
-                radius: size.width * 0.05,
+                radius: size.width * 0.04,
                 backgroundColor: AppColors.cardColor,
                 child: Icon(
                   Icons.favorite_border,
-                  size: size.width * 0.065,
+                  size: size.width * 0.06,
                   color: AppColors.primaryColor,
                 ),
               )),
