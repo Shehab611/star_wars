@@ -1,8 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:star_wars/core/utils/design_utils/app_theme.dart';
 
 class DataComponentWidget extends StatelessWidget {
   const DataComponentWidget(
+      {super.key,
+      this.onFavouritePressed,
+      required this.upperData,
+      required this.lowerData,
+      required this.isLoading});
+
+  final void Function()? onFavouritePressed;
+  final String upperData, lowerData;
+  final bool isLoading;
+
+  @override
+  Widget build(BuildContext context) {
+    return isLoading
+        ? Shimmer.fromColors(
+            baseColor: AppColors.primaryColor,
+            highlightColor: AppColors.cardColor,
+            child: DataComponent(
+              lowerData: lowerData,
+              upperData: upperData,
+              onFavouritePressed: onFavouritePressed,
+            ),
+          )
+        : DataComponent(
+            lowerData: lowerData,
+            upperData: upperData,
+            onFavouritePressed: onFavouritePressed);
+  }
+}
+
+class DataComponent extends StatelessWidget {
+  const DataComponent(
       {super.key,
       this.onFavouritePressed,
       required this.upperData,

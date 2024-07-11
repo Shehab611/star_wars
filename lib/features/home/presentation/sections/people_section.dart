@@ -11,6 +11,7 @@ class PeopleSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SectionWidget<People>(
       headerText: 'People',
+      isLoading: true,
       data: const [
         PeopleModel(
             id: 'id',

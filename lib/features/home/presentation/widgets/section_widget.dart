@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/core/components/custom_components/custom_loader.dart';
 import 'package:star_wars/core/components/custom_components/title_row_component.dart';
 import 'package:star_wars/core/shared/data_providers/data_provider.dart';
 import 'package:star_wars/core/utils/design_utils/app_theme.dart';
@@ -12,12 +11,14 @@ class SectionWidget<T> extends StatelessWidget {
     required this.data,
     this.onTap,
     required this.getDataProvider,
+    required this.isLoading,
   });
 
   final String headerText;
   final List<T> data;
   final void Function()? onTap;
   final DataProvider Function(T data) getDataProvider;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -30,27 +31,27 @@ class SectionWidget<T> extends StatelessWidget {
         ),
         SizedBox(
           height: size.width * 0.45,
-          child: Visibility(
-            visible: data.isNotEmpty,
-            replacement: const CustomLoader(),
-            child: ListView.separated(
-                padding: const EdgeInsets.symmetric(
-                    vertical: AppSizes.paddingSizeSeventeen),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  DataProvider dataProvider = getDataProvider(data[index]);
-                  return SizedBox(
-                      width: size.width * 0.47,
-                      child: DataComponentWidget(
-                        upperData: dataProvider.upperData,
-                        lowerData: dataProvider.lowerData,
-                      ));
-                },
-                separatorBuilder: (context, index) => SizedBox(
-                      width: size.width * 0.02,
-                    ),
-                itemCount: data.length),
-          ),
+          child: ListView.separated(
+              padding: const EdgeInsets.symmetric(
+                  vertical: AppSizes.paddingSizeSeventeen),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                DataProvider? dataProvider;
+                if (!isLoading) {
+                  dataProvider = getDataProvider(data[index]);
+                }
+                return SizedBox(
+                    width: size.width * 0.47,
+                    child: DataComponentWidget(
+                      upperData: dataProvider?.upperData ?? '',
+                      lowerData: dataProvider?.lowerData ?? '',
+                      isLoading: data.isEmpty,
+                    ));
+              },
+              separatorBuilder: (context, index) => SizedBox(
+                    width: size.width * 0.02,
+                  ),
+              itemCount: data.isNotEmpty ? data.length : 3),
         )
       ],
     );
