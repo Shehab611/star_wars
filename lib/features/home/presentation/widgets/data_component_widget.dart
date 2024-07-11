@@ -52,11 +52,11 @@ class DataComponent extends StatelessWidget {
           width: size.width * 0.45,
           height: size.width * 0.32,
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Colors.blueGrey,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                color: Colors.blue.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.5),
                 offset: const Offset(15, 15),
                 blurRadius: 3,
                 spreadRadius: -10,

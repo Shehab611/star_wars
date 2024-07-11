@@ -16,7 +16,7 @@ class VehiclesSection extends StatelessWidget {
           return Center(child: Text(state.error));
         }
         return SectionWidget<Vehicle>(
-          headerText: 'Vehicle',
+          headerText: 'Vehicles',
           isLoading: state is! VehicleGetDataSuccessState,
           data: (state is VehicleGetDataSuccessState) ? state.data : [],
           getDataProvider: (Vehicle data) {

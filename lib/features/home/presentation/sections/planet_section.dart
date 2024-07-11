@@ -16,7 +16,7 @@ class PlanetsSection extends StatelessWidget {
           return Center(child: Text(state.error));
         }
         return SectionWidget<Planet>(
-          headerText: 'Planet',
+          headerText: 'Planets',
           isLoading: state is! PlanetGetDataSuccessState,
           data: (state is PlanetGetDataSuccessState) ? state.data : [],
           getDataProvider: (Planet data) {

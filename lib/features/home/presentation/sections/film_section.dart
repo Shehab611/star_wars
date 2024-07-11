@@ -16,7 +16,7 @@ class FilmsSection extends StatelessWidget {
           return Center(child: Text(state.error));
         }
         return SectionWidget<Film>(
-          headerText: 'Film',
+          headerText: 'Films',
           isLoading: state is! FilmGetDataSuccessState,
           data: (state is FilmGetDataSuccessState) ? state.data : [],
           getDataProvider: (Film data) {

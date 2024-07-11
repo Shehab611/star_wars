@@ -16,7 +16,7 @@ class StarshipsSection extends StatelessWidget {
           return Center(child: Text(state.error));
         }
         return SectionWidget<Starship>(
-          headerText: 'Starship',
+          headerText: 'Starships',
           isLoading: state is! StarshipGetDataSuccessState,
           data: (state is StarshipGetDataSuccessState) ? state.data : [],
           getDataProvider: (Starship data) {
