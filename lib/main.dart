@@ -1,10 +1,11 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'core/service_locator.dart';
 import 'core/utils/app_constants/app_strings.dart';
 import 'core/utils/app_routes_utils/app_router.dart';
 import 'core/utils/design_utils/app_theme.dart';
-import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                     theme: AppThemeData.lightTheme,
                     darkTheme: AppThemeData.darkTheme,
                     themeMode: appTheme.themeMode,
-                    initialRoute: AppPathName.kNewsScreen,
+                    initialRoute: AppPathName.kHomeScreen,
                     locale: appLanguage.appLocal,
                     supportedLocales: AppConstants.supportedLocales.values,
                     localizationsDelegates: AppConstants.delegates,
