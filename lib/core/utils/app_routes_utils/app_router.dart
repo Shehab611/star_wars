@@ -8,6 +8,7 @@ import 'package:star_wars/features/home/domain/use_cases/get_species_data.dart';
 import 'package:star_wars/features/home/domain/use_cases/get_starship_data.dart';
 import 'package:star_wars/features/home/domain/use_cases/get_vehicle_data.dart';
 import 'package:star_wars/features/home/presentation/view_model_manger/film_cubit/film_cubit.dart';
+import 'package:star_wars/features/home/presentation/view_model_manger/home_cubit/home_cubit.dart';
 import 'package:star_wars/features/home/presentation/view_model_manger/people_cubit/people_cubit.dart';
 import 'package:star_wars/features/home/presentation/view_model_manger/planet_cubit/planet_cubit.dart';
 import 'package:star_wars/features/home/presentation/view_model_manger/species_cubit/species_cubit.dart';
@@ -39,6 +40,9 @@ abstract final class AppRouter {
           BlocProvider(
               create: (context) =>
                   StarshipCubit(GetStarshipData(sl.get()))..getData()),
+          BlocProvider(
+            create: (context) => HomeCubit(),
+          )
         ], child: const HomeScreen())
   };
 }
