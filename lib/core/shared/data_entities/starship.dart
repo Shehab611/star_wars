@@ -17,6 +17,7 @@ abstract class Starship extends Equatable {
   final String starshipClass;
   final List<String> films;
   final List<String> pilots;
+  final bool canLoadMore;
 
   const Starship(
       {required this.id,
@@ -34,7 +35,8 @@ abstract class Starship extends Equatable {
       required this.consumables,
       required this.hyperDriveRating,
       required this.starshipClass,
-      required this.mglt});
+      required this.mglt,
+      required this.canLoadMore});
 
   @override
   List<Object> get props => [
@@ -48,7 +50,12 @@ abstract class Starship extends Equatable {
         passengers,
         length,
         cargoCapacity,
+        hyperDriveRating,
+        consumables,
+        mglt,
+        starshipClass,
         films,
         pilots,
+        canLoadMore,
       ];
 }

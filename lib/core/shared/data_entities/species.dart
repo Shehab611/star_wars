@@ -14,6 +14,7 @@ abstract class Species extends Equatable {
   final String language;
   final List<String> films;
   final List<String> people;
+  final bool canLoadMore;
 
   const Species({
     required this.id,
@@ -29,7 +30,7 @@ abstract class Species extends Equatable {
     required this.films,
     required this.language,
     required this.people,
-  });
+      required this.canLoadMore});
 
   @override
   List<Object> get props => [
@@ -37,13 +38,15 @@ abstract class Species extends Equatable {
         name,
         classification,
         designation,
+        averageHeight,
         hairColors,
         skinColor,
         eyeColor,
-        averageHeight,
         averageLifespan,
         homeWorld,
+        language,
         films,
         people,
+        canLoadMore,
       ];
 }

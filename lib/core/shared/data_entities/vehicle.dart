@@ -15,6 +15,7 @@ abstract class Vehicle extends Equatable {
   final String vehicleClass;
   final List<String> films;
   final List<String> pilots;
+  final bool canLoadMore;
 
   const Vehicle({
     required this.id,
@@ -31,7 +32,7 @@ abstract class Vehicle extends Equatable {
     required this.pilots,
     required this.consumables,
     required this.vehicleClass,
-  });
+      required this.canLoadMore});
 
   @override
   List<Object> get props => [
@@ -45,7 +46,10 @@ abstract class Vehicle extends Equatable {
         passengers,
         length,
         cargoCapacity,
+        consumables,
+        vehicleClass,
         films,
         pilots,
+        canLoadMore,
       ];
 }

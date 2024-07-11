@@ -13,7 +13,8 @@ final class PeopleModel extends People {
     required super.gender,
     required super.homeWorld,
     required super.films,
-    required super.species,
+      required super.canLoadMore,
+      required super.species,
     required super.vehicles,
     required super.starships});
 
@@ -23,6 +24,7 @@ final class PeopleModel extends People {
         name: json['name'],
         height: json['height'],
         mass: json['mass'],
+        canLoadMore: json['next'] != null,
         hairColor: json['hair_color'],
         skinColor: json['skin_color'],
         eyeColor: json['eye_color'],

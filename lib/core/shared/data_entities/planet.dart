@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class Planet extends Equatable {
+  final bool canLoadMore;
   final String id;
   final String name;
   final String rotationPeriod;
@@ -26,10 +27,12 @@ abstract class Planet extends Equatable {
       required this.population,
       required this.surfaceWater,
       required this.films,
-      required this.residents});
+      required this.residents,
+      required this.canLoadMore});
 
   @override
   List<Object> get props => [
+        canLoadMore,
         id,
         name,
         rotationPeriod,

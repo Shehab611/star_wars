@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class People extends Equatable {
+  final bool canLoadMore;
   final String id;
   final String name;
   final String height;
@@ -30,10 +31,12 @@ abstract class People extends Equatable {
       required this.films,
       required this.species,
       required this.vehicles,
+      required this.canLoadMore,
       required this.starships});
 
   @override
   List<Object> get props => [
+        canLoadMore,
         id,
         name,
         height,

@@ -15,6 +15,7 @@ final class VehicleModel extends Vehicle {
     required super.cargoCapacity,
     required super.films,
     required super.pilots,
+    required super.canLoadMore,
     required super.consumables,
     required super.vehicleClass,
   });
@@ -24,6 +25,7 @@ final class VehicleModel extends Vehicle {
         id: HelperMethods.extractID(json['url']),
         name: json['name'],
         model: json['model'],
+        canLoadMore: json['next'] != null,
         manufacturer: json['manufacturer'],
         costInCredits: json['cost_in_credits'],
         maxAtmospheringSpeed: json['max_atmosphering_speed'],

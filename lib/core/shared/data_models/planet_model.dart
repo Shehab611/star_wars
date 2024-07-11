@@ -1,8 +1,8 @@
 import 'package:star_wars/core/shared/data_entities/planet.dart';
 import 'package:star_wars/core/usable_functions/helper_methods.dart';
 
-final class PlantModel extends Planet {
-  const PlantModel(
+final class PlanetModel extends Planet {
+  const PlanetModel(
       {required super.id,
       required super.name,
       required super.rotationPeriod,
@@ -12,12 +12,13 @@ final class PlantModel extends Planet {
       required super.gravity,
       required super.terrain,
       required super.population,
+      required super.canLoadMore,
       required super.surfaceWater,
       required super.films,
       required super.residents});
 
-  factory PlantModel.fromJson(Map<String, dynamic> json) {
-    return PlantModel(
+  factory PlanetModel.fromJson(Map<String, dynamic> json) {
+    return PlanetModel(
         id: HelperMethods.extractID(json['url']),
         name: json['name'],
         rotationPeriod: json['rotation_period'],
@@ -25,6 +26,7 @@ final class PlantModel extends Planet {
         diameter: json['diameter'],
         climate: json['climate'],
         gravity: json['gravity'],
+        canLoadMore: json['next'] != null,
         terrain: json['terrain'],
         population: json['population'],
         surfaceWater: json['surface_water'],
