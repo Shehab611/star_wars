@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:star_wars/core/shared/data_entities/starship.dart';
 import 'package:star_wars/core/shared/data_providers/starship_data_provider.dart';
+import 'package:star_wars/features/home/presentation/view_model_manger/starship_cubit/starship_cubit.dart';
 import 'package:star_wars/features/home/presentation/widgets/section_widget.dart';
 
 class StarshipsSection extends StatelessWidget {
@@ -8,12 +10,19 @@ class StarshipsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SectionWidget<Starship>(
-      headerText: 'Starships',
-      isLoading: true,
-      data: const [],
-      getDataProvider: (Starship data) {
-        return StarshipDataProvider(data);
+    return BlocBuilder<StarshipCubit, StarshipState>(
+      builder: (context, state) {
+        if (state is StarshipGetDataFailedState) {
+          return Center(child: Text(state.error));
+        }
+        return SectionWidget<Starship>(
+          headerText: 'Starship',
+          isLoading: state is! StarshipGetDataSuccessState,
+          data: (state is StarshipGetDataSuccessState) ? state.data : [],
+          getDataProvider: (Starship data) {
+            return StarshipDataProvider(data);
+          },
+        );
       },
     );
   }
