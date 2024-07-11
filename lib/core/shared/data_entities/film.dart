@@ -13,7 +13,6 @@ abstract class Film extends Equatable {
   final List<String> vehicles;
   final List<String> starships;
   final List<String> species;
-  final bool canLoadMore;
 
   const Film(
       {required this.id,
@@ -28,7 +27,7 @@ abstract class Film extends Equatable {
       required this.vehicles,
       required this.species,
       required this.starships,
-      required this.canLoadMore});
+  });
 
   @override
   List<Object> get props => [
@@ -44,6 +43,5 @@ abstract class Film extends Equatable {
         vehicles,
         starships,
         species,
-        canLoadMore,
       ];
 }

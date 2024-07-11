@@ -15,7 +15,6 @@ final class VehicleModel extends Vehicle {
     required super.cargoCapacity,
     required super.films,
     required super.pilots,
-    required super.canLoadMore,
     required super.consumables,
     required super.vehicleClass,
   });
@@ -25,7 +24,6 @@ final class VehicleModel extends Vehicle {
         id: HelperMethods.extractID(json['url']),
         name: json['name'],
         model: json['model'],
-        canLoadMore: HelperMethods.canLoadMore(json['next']),
         manufacturer: json['manufacturer'],
         costInCredits: json['cost_in_credits'],
         maxAtmospheringSpeed: json['max_atmosphering_speed'],
@@ -33,12 +31,14 @@ final class VehicleModel extends Vehicle {
         passengers: json['passengers'],
         length: json['length'],
         cargoCapacity: json['cargo_capacity'],
-        films: (json['films'] as List<String>)
+        films: (json['films'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        pilots: (json['pilots'] as List<String>)
+            .toList()
+            .cast<String>(),
+        pilots: (json['pilots'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
+            .toList()
+            .cast<String>(),
         consumables: json['consumables'],
         vehicleClass: json['vehicle_class']);
   }

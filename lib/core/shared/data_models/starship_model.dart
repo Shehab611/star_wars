@@ -14,7 +14,6 @@ final class StarshipModel extends Starship {
       required super.length,
       required super.cargoCapacity,
       required super.films,
-      required super.canLoadMore,
       required super.pilots,
       required super.consumables,
       required super.hyperDriveRating,
@@ -26,7 +25,6 @@ final class StarshipModel extends Starship {
         id: HelperMethods.extractID(json['url']),
         name: json['name'],
         model: json['model'],
-        canLoadMore: HelperMethods.canLoadMore(json['next']),
         manufacturer: json['manufacturer'],
         costInCredits: json['cost_in_credits'],
         maxAtmospheringSpeed: json['max_atmosphering_speed'],
@@ -34,12 +32,14 @@ final class StarshipModel extends Starship {
         passengers: json['passengers'],
         length: json['length'],
         cargoCapacity: json['cargo_capacity'],
-        films: (json['films'] as List<String>)
+        films: (json['films'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        pilots: (json['pilots'] as List<String>)
+            .toList()
+            .cast<String>(),
+        pilots: (json['pilots'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
+            .toList()
+            .cast<String>(),
         consumables: json['consumables'],
         hyperDriveRating: json['hyperdrive_rating'],
         mglt: json['MGLT'],

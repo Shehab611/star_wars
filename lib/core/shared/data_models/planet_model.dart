@@ -12,7 +12,6 @@ final class PlanetModel extends Planet {
       required super.gravity,
       required super.terrain,
       required super.population,
-      required super.canLoadMore,
       required super.surfaceWater,
       required super.films,
       required super.residents});
@@ -26,16 +25,16 @@ final class PlanetModel extends Planet {
         diameter: json['diameter'],
         climate: json['climate'],
         gravity: json['gravity'],
-        canLoadMore: HelperMethods.canLoadMore(json['next']),
         terrain: json['terrain'],
         population: json['population'],
         surfaceWater: json['surface_water'],
-        films: (json['films'] as List<String>)
+        films: (json['films'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        residents: (json['residents'] as List<String>)
+            .toList()
+            .cast<String>(),
+        residents: (json['residents'])
             .map((e) => HelperMethods.extractID(e))
-            .toList());
+            .toList()
+            .cast<String>());
   }
-
 }

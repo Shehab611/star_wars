@@ -15,7 +15,7 @@ final class FilmModel extends Film {
       required super.vehicles,
       required super.species,
       required super.starships,
-      required super.canLoadMore});
+  });
 
   factory FilmModel.fromJson(Map<String, dynamic> json) {
     return FilmModel(
@@ -26,21 +26,24 @@ final class FilmModel extends Film {
         director: json['director'],
         producer: json['producer'],
         releaseDate: json['release_date'],
-        canLoadMore: HelperMethods.canLoadMore(json['next']),
-        characters: (json['characters'] as List<String>)
+        characters: (json['characters'])
             .map((e) => HelperMethods.extractID(e))
+            .toList()
+            .cast<String>(),
+        planets:
+            (json['planets']).map((e) => HelperMethods.extractID(e))
             .toList(),
-        planets: (json['planets'] as List<String>)
+        vehicles: (json['vehicles'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        vehicles: (json['vehicles'] as List<String>)
+            .toList()
+            .cast<String>(),
+        starships: (json['starships'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        starships: (json['starships'] as List<String>)
+            .toList()
+            .cast<String>(),
+        species: (json['species'])
             .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        species: (json['species'] as List<String>)
-            .map((e) => HelperMethods.extractID(e))
-            .toList());
+            .toList()
+            .cast<String>());
   }
 }

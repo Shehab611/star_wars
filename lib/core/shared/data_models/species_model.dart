@@ -14,7 +14,6 @@ final class SpeciesModel extends Species {
     required super.averageLifespan,
     required super.homeWorld,
     required super.films,
-    required super.canLoadMore,
     required super.language,
     required super.people,
   });
@@ -36,15 +35,16 @@ final class SpeciesModel extends Species {
           : json['eye_colors'].split(', '),
       averageHeight: json['average_height'],
       averageLifespan: json['average_lifespan'],
-      canLoadMore: HelperMethods.canLoadMore(json['next']),
       language: json['language'],
       homeWorld: HelperMethods.extractID(json['homeworld']),
-      films: (json['films'] as List<String>)
+      films: (json['films'])
           .map((e) => HelperMethods.extractID(e))
-          .toList(),
-      people: (json['people'] as List<String>)
+          .toList()
+          .cast<String>(),
+      people: (json['people'])
           .map((e) => HelperMethods.extractID(e))
-          .toList(),
+          .toList()
+          .cast<String>(),
     );
   }
 }
