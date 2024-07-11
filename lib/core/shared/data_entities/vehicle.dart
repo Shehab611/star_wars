@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:star_wars/core/usable_functions/helper_methods.dart';
 
-final class VehiclesModel extends Equatable {
+abstract class Vehicle extends Equatable {
   final String id;
   final String name;
   final String model;
@@ -17,7 +16,7 @@ final class VehiclesModel extends Equatable {
   final List<String> films;
   final List<String> pilots;
 
-  const VehiclesModel({
+  const Vehicle({
     required this.id,
     required this.name,
     required this.model,
@@ -33,28 +32,6 @@ final class VehiclesModel extends Equatable {
     required this.consumables,
     required this.vehicleClass,
   });
-
-  factory VehiclesModel.fromJson(Map<String, dynamic> json) {
-    return VehiclesModel(
-        id: HelperMethods.extractID(json['url']),
-        name: json['name'],
-        model: json['model'],
-        manufacturer: json['manufacturer'],
-        costInCredits: json['cost_in_credits'],
-        maxAtmospheringSpeed: json['max_atmosphering_speed'],
-        crew: json['crew'],
-        passengers: json['passengers'],
-        length: json['length'],
-        cargoCapacity: json['cargo_capacity'],
-        films: (json['films'] as List<String>)
-            .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        pilots: (json['pilots'] as List<String>)
-            .map((e) => HelperMethods.extractID(e))
-            .toList(),
-        consumables: json['consumables'],
-        vehicleClass: json['vehicle_class']);
-  }
 
   @override
   List<Object> get props => [
