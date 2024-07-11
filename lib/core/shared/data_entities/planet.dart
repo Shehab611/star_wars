@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class Plant extends Equatable {
+abstract class Planet extends Equatable {
   final String id;
   final String name;
   final String rotationPeriod;
@@ -14,7 +14,7 @@ abstract class Plant extends Equatable {
   final List<String> films;
   final List<String> residents;
 
-  const Plant(
+  const Planet(
       {required this.id,
       required this.name,
       required this.rotationPeriod,

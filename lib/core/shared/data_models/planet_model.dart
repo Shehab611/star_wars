@@ -1,7 +1,7 @@
 import 'package:star_wars/core/shared/data_entities/planet.dart';
 import 'package:star_wars/core/usable_functions/helper_methods.dart';
 
-final class PlantModel extends Plant {
+final class PlantModel extends Planet {
   const PlantModel(
       {required super.id,
       required super.name,
