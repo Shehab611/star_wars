@@ -36,7 +36,7 @@ final class SpeciesModel extends Species {
           : json['eye_colors'].split(', '),
       averageHeight: json['average_height'],
       averageLifespan: json['average_lifespan'],
-      canLoadMore: json['next'] != null,
+      canLoadMore: HelperMethods.canLoadMore(json['next']),
       language: json['language'],
       homeWorld: HelperMethods.extractID(json['homeworld']),
       films: (json['films'] as List<String>)

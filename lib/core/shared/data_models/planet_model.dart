@@ -26,7 +26,7 @@ final class PlanetModel extends Planet {
         diameter: json['diameter'],
         climate: json['climate'],
         gravity: json['gravity'],
-        canLoadMore: json['next'] != null,
+        canLoadMore: HelperMethods.canLoadMore(json['next']),
         terrain: json['terrain'],
         population: json['population'],
         surfaceWater: json['surface_water'],

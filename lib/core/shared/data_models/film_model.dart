@@ -26,7 +26,7 @@ final class FilmModel extends Film {
         director: json['director'],
         producer: json['producer'],
         releaseDate: json['release_date'],
-        canLoadMore: json['next'] != null,
+        canLoadMore: HelperMethods.canLoadMore(json['next']),
         characters: (json['characters'] as List<String>)
             .map((e) => HelperMethods.extractID(e))
             .toList(),

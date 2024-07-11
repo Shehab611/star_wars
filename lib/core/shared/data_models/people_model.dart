@@ -24,7 +24,7 @@ final class PeopleModel extends People {
         name: json['name'],
         height: json['height'],
         mass: json['mass'],
-        canLoadMore: json['next'] != null,
+        canLoadMore: HelperMethods.canLoadMore(json['next']),
         hairColor: json['hair_color'],
         skinColor: json['skin_color'],
         eyeColor: json['eye_color'],

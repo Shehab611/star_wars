@@ -26,7 +26,7 @@ final class StarshipModel extends Starship {
         id: HelperMethods.extractID(json['url']),
         name: json['name'],
         model: json['model'],
-        canLoadMore: json['next'] != null,
+        canLoadMore: HelperMethods.canLoadMore(json['next']),
         manufacturer: json['manufacturer'],
         costInCredits: json['cost_in_credits'],
         maxAtmospheringSpeed: json['max_atmosphering_speed'],
