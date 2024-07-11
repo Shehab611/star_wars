@@ -15,6 +15,12 @@ abstract final class AppStrings {
   static const String ar = 'ar';
   static const String seeAll = 'see_all';
   static const String homeScreen = 'home_screen';
+  static const String films = 'films';
+  static const String people = 'people';
+  static const String planets = 'planets';
+  static const String species = 'species';
+  static const String vehicles = 'vehicles';
+  static const String starships = 'starships';
 
   //#endregion
 

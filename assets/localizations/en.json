@@ -11,5 +11,11 @@
   "ar": "Arabic",
   "no_data": "No Data is Found",
   "see_all": "See All",
-  "home_screen": "Home Screen"
+  "home_screen": "Home Screen",
+  "people": "People",
+  "planets": "Planets",
+  "vehicles": "Vehicles",
+  "films": "Films",
+  "starships": "Starships",
+  "species": "Species"
 }
