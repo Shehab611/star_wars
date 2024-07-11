@@ -6,7 +6,12 @@ import 'package:star_wars/core/shared/data_models/starship_model.dart';
 import 'package:star_wars/core/shared/data_models/vehicle_model.dart';
 import 'package:star_wars/core/usable_functions/api_service_helper.dart';
 
+part 'film_remote_data_source.dart';
 part 'people_remote_data_source.dart';
+part 'planet_remote_data_source.dart';
+part 'species_remote_data_source.dart';
+part 'starship_remote_data_source.dart';
+part 'vehicle_remote_data_source.dart';
 
 abstract interface class PeopleRemoteDataSourceInterface {
   Future<List<PeopleModel>> getPeopleData(int pageNum);

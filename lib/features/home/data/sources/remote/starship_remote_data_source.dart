@@ -1,18 +1,18 @@
 part of 'remote_data_source_interfaces.dart';
 
-final class PeopleRemoteDataSourceImpl
-    implements PeopleRemoteDataSourceInterface {
+final class StarshipRemoteDataSourceImpl
+    implements StarshipRemoteDataSourceInterface {
   final ApiResponseHandler _apiResponseHandler;
 
-  const PeopleRemoteDataSourceImpl(this._apiResponseHandler);
+  const StarshipRemoteDataSourceImpl(this._apiResponseHandler);
 
   @override
-  Future<List<PeopleModel>> getPeopleData(int pageNum) async {
+  Future<List<StarshipModel>> getStarshipData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
         .handleGetApiResponse(ApiEndPoints.people, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
-      return _apiResponseHandler.extractListData<PeopleModel>(
-          apiResponse, PeopleModel.fromJson);
+      return _apiResponseHandler.extractListData<StarshipModel>(
+          apiResponse, StarshipModel.fromJson);
     } else {
       throw Exception(apiResponse.error);
     }
