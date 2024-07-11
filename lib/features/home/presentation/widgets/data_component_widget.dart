@@ -79,7 +79,7 @@ class DataComponent extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: -5,
+          right: 1,
           top: -5,
           child: IconButton(
               onPressed: onFavouritePressed,
