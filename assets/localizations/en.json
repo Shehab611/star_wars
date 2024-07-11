@@ -9,5 +9,7 @@
   "bad_certificates_error": "Connection to API server failed due to Bad Certificate",
   "en": "English",
   "ar": "Arabic",
-  "no_data": "No Data is Found"
+  "no_data": "No Data is Found",
+  "see_all": "See All",
+  "home_screen": "Home Screen"
 }

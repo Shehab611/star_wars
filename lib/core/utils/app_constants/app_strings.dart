@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'app_constants.dart';
-
 part 'app_localization.dart';
 
 abstract final class AppStrings {
@@ -14,6 +13,8 @@ abstract final class AppStrings {
   static const String noData = 'no_data';
   static const String en = 'en';
   static const String ar = 'ar';
+  static const String seeAll = 'see_all';
+  static const String homeScreen = 'home_screen';
 
   //#endregion
 
