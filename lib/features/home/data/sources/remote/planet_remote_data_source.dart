@@ -7,12 +7,15 @@ final class PlanetRemoteDataSourceImpl
   const PlanetRemoteDataSourceImpl(this._apiResponseHandler);
 
   @override
-  Future<List<PlanetModel>> getPlanetData(int pageNum) async {
+  Future<BaseModel<List<PlanetModel>>> getPlanetData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
         .handleGetApiResponse(ApiEndPoints.planets, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
-      return _apiResponseHandler.extractListData<PlanetModel>(
-          apiResponse, PlanetModel.fromJson);
+      return BaseModel<List<PlanetModel>>(
+          canLoadMore:
+              HelperMethods.canLoadMore(apiResponse.response!.data['next']),
+          data: _apiResponseHandler.extractListData<PlanetModel>(
+              apiResponse, PlanetModel.fromJson));
     } else {
       throw Exception(apiResponse.error);
     }

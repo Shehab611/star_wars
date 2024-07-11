@@ -6,12 +6,15 @@ final class FilmRemoteDataSourceImpl implements FilmRemoteDataSourceInterface {
   const FilmRemoteDataSourceImpl(this._apiResponseHandler);
 
   @override
-  Future<List<FilmModel>> getFilmData(int pageNum) async {
+  Future<BaseModel<List<FilmModel>>> getFilmData(int pageNum) async {
     ApiResponse apiResponse = await _apiResponseHandler
         .handleGetApiResponse(ApiEndPoints.films, {'page': pageNum});
     if (apiResponse.statusCode == 200) {
-      return _apiResponseHandler.extractListData<FilmModel>(
-          apiResponse, FilmModel.fromJson);
+      return BaseModel<List<FilmModel>>(
+          canLoadMore:
+              HelperMethods.canLoadMore(apiResponse.response!.data['next']),
+          data: _apiResponseHandler.extractListData<FilmModel>(
+              apiResponse, FilmModel.fromJson));
     } else {
       throw Exception(apiResponse.error);
     }
