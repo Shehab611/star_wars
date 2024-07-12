@@ -16,6 +16,7 @@ import 'package:star_wars/features/home/presentation/view_model_manger/starship_
 import 'package:star_wars/features/home/presentation/view_model_manger/vehicle_cubit/vehicle_cubit.dart';
 import 'package:star_wars/features/home/presentation/views/home_screen.dart';
 import 'package:star_wars/features/see_more/presentation/view/see_more_screen.dart';
+import 'package:star_wars/features/see_more/presentation/view_model_manger/see_more_cubit.dart';
 
 part 'app_navigator.dart';
 part 'app_paths.dart';
@@ -45,6 +46,9 @@ abstract final class AppRouter {
             create: (context) => HomeCubit(),
           )
         ], child: const HomeScreen()),
-    AppPathName.kSeeMoreScreen: (BuildContext context) => const SeeMoreScreen(),
+    AppPathName.kSeeMoreScreen: (BuildContext context) => BlocProvider(
+          create: (context) => SeeMoreCubit(),
+          child: const SeeMoreScreen(),
+        ),
   };
 }
