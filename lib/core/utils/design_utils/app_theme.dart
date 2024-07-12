@@ -2,21 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'app_colors.dart';
-
 part 'app_sizes.dart';
-
 part 'app_text_styles.dart';
 
 abstract final class AppThemeData {
-  static ListTileThemeData listTileThemeData = const ListTileThemeData(
-    titleTextStyle: AppTextStyles.listTileTitleTextStyle,
-    subtitleTextStyle: AppTextStyles.listTileSubTitleTextStyle,
-    contentPadding: EdgeInsets.symmetric(
-        horizontal: AppSizes.paddingSizeEight,
-        vertical: AppSizes.paddingSizeExtraExtraSmall),
-    visualDensity: VisualDensity(vertical: 4, horizontal: -2),
-  );
-
   static AppBarTheme appBarTheme = const AppBarTheme(
       centerTitle: true,
       elevation: 0,
@@ -27,11 +16,11 @@ abstract final class AppThemeData {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.primaryColor,
-      colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cardColor),
+    colorScheme: ColorScheme.fromSeed(
+        seedColor: AppColors.cardColor, shadow: Colors.black.withOpacity(.5)),
     scaffoldBackgroundColor: Colors.white,
-    listTileTheme:
-        listTileThemeData.copyWith(textColor: AppColors.primaryColor),
-    appBarTheme: appBarTheme.copyWith(color: Colors.white,
+    appBarTheme: appBarTheme.copyWith(
+        color: Colors.white,
         titleTextStyle: appBarTheme.titleTextStyle
             ?.copyWith(color: AppColors.primaryColor)),
     textTheme: const TextTheme(
@@ -51,8 +40,9 @@ abstract final class AppThemeData {
   );
 
   static ThemeData darkTheme = ThemeData(
+      iconTheme: const IconThemeData(color: Colors.yellowAccent),
       brightness: Brightness.dark,
-      listTileTheme: listTileThemeData,
+      shadowColor: Colors.white.withOpacity(.5),
       appBarTheme: appBarTheme);
 }
 

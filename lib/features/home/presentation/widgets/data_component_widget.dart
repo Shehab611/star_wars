@@ -54,7 +54,7 @@ class DataComponent extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.white.withOpacity(0.5),
+            color: Theme.of(context).shadowColor,
             offset: const Offset(15, 15),
             blurRadius: 3,
             spreadRadius: -10,

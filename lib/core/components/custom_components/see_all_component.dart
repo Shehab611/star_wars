@@ -17,16 +17,8 @@ class SeeAllComponent extends StatelessWidget {
             AppLocalizations.of(context).translate(AppStrings.seeAll),
             style: AppTextStyles.highlightTextStyle,
           ),
-          Container(
-            margin: const EdgeInsets.only(left: AppSizes.paddingSizeDefault),
-            decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.circular(AppSizes.paddingSizeDefault),
-                color: AppColors.cardColor),
-            child: const Icon(
-              Icons.arrow_forward_ios_sharp,
-              color: AppColors.primaryColor,
-            ),
+          const Icon(
+            Icons.arrow_forward_ios_sharp,
           )
         ],
       ),
