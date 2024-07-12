@@ -21,7 +21,7 @@ git clone https://github.com/Shehab611/star_wars.git
 <p>2. Go to directory</p>
 
 ```
-cd slash_app
+cd star_wars
 ```
 
 <p>3. Open on VsCode</p>
