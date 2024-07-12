@@ -1,16 +1,52 @@
-# star_wars
+<h1 align="center" id="title">Star Wars</h1>
 
-A new Flutter project.
+<h2>🧐 Features</h2>
 
-## Getting Started
+Here are some of the project's best features:
 
-This project is a starting point for a Flutter application.
+*   Dependency Injection Design Pattern.
+*   Clean Architecture Principles
+*   MVVM Architecture Pattern
+*   Cubit as State Management
+*   Responsive Design
 
-A few resources to get you started if this is your first Flutter project:
+<h2>🛠️ Installation Steps:</h2>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p>1. Clone the Repo</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+git clone https://github.com/Shehab611/star_wars.git
+```
+
+<p>2. Go to directory</p>
+
+```
+cd slash_app
+```
+
+<p>3. Open on VsCode</p>
+
+```
+code .
+```
+
+<p>4. Get dependencies</p>
+
+```
+flutter pub get
+```
+
+<p>5. Run The App</p>
+
+```
+flutter run
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Dart
+*   Flutter
