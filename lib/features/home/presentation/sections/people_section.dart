@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:star_wars/core/shared/data_entities/people.dart';
 import 'package:star_wars/core/shared/data_providers/people_data_provider.dart';
 import 'package:star_wars/core/utils/app_constants/app_strings.dart';
+import 'package:star_wars/core/utils/app_routes_utils/app_router.dart';
 import 'package:star_wars/features/home/presentation/view_model_manger/people_cubit/people_cubit.dart';
 import 'package:star_wars/features/home/presentation/widgets/section_widget.dart';
 
@@ -17,6 +18,12 @@ class PeopleSection extends StatelessWidget {
           return Center(child: Text(state.error));
         }
         return SectionWidget<People>(
+          onTap: () {
+            AppNavigator.navigateToSeeMoreScreen<People>(
+                context,
+                (state is PeopleGetDataSuccessState) ? state.data : [],
+                AppStrings.people);
+          },
           headerText: AppLocalizations.of(context).translate(AppStrings.people),
           isLoading: state is! PeopleGetDataSuccessState,
           data: (state is PeopleGetDataSuccessState) ? state.data : [],
