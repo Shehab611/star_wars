@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:star_wars/core/shared/data_entities/species.dart';
-import 'package:star_wars/features/home/domain/use_cases/get_species_data.dart';
+import 'package:star_wars/core/shared/use_cases/get_species_data.dart';
 
 part 'species_state.dart';
 
